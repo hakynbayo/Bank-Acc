@@ -40,20 +40,22 @@ function createAccount(req, res) {
   data.push(newAccount);
   db.writeData(data);
 
-  res.status(201).json({ accountNumber });
+  res.status(201).json(newAccount);
 }
+
 
 // Resolve a bank account by account number
 function resolveAccount(req, res) {
-  const { accountNumber } = req.query;
+  console.log("hay")
+  const { accountNumber } = req.body;
+  console.log(accountNumber)
 
   if (!accountNumber) {
-    return res.status(400).json({ error: "Missing account_number" });
+    return res.status(400).json({ error: "Missing account" });
   }
 
   const data = db.readData();
   const account = data.find((acc) => acc.accountNumber === accountNumber);
-  db.readData(data);
 
   if (!account) {
     return res.status(404).json({ error: "Account not found" });
@@ -61,6 +63,7 @@ function resolveAccount(req, res) {
 
   res.status(200).json(account);
 }
+
 
 // Fetch all bank accounts
 function fetchAllAccounts(req, res) {
