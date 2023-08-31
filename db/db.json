@@ -33,5 +33,19 @@
     "dob": "1990-01-01",
     "accountType": "Savings",
     "balance": 1000
+  },
+  {
+    "accountNumber": "3407236981",
+    "holderName": "Luke Doe",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
+  },
+  {
+    "accountNumber": "6111403968",
+    "holderName": "Luke Doe",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
   }
 ]

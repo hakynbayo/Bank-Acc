@@ -1,4 +1,4 @@
-const db = require("./db/db");
+const db = require("../db/db");
 
 // Define the generateAccountNumber function here
 function generateAccountNumber() {
@@ -45,7 +45,7 @@ function createAccount(req, res) {
 
 // Resolve a bank account by account number
 function resolveAccount(req, res) {
-  const { accountNumber } = req.body;
+  const { accountNumber } = req.query;
 
   if (!accountNumber) {
     return res.status(400).json({ error: "Missing account_number" });
