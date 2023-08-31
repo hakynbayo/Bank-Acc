@@ -1,11 +1,11 @@
 // routes.js
 const express = require("express");
 const router = express.Router();
-const {
-  createAccount,
-  resolveAccount,
-  fetchAllAccounts,
-} = require("./controller"); // Import controllers
+
+const createAccountController = require('./createAccountController');
+const resolveAccountController = require('./resolveAccountController');
+const fetchAllAccountsController = require('./fetchAllAccountsController');
+
 
 /**
  * @swagger
@@ -105,12 +105,12 @@ const {
  */
 
 // Create a new bank account
-router.post("/create_account", createAccount);
+router.post("/create_account", createAccountController);
 
 // Resolve a bank account by account number
-router.get('/resolve_account/:accountNumber', resolveAccount);
+router.get('/resolve_account/:accountNumber', resolveAccountController);
 
 // Fetch all bank accounts
-router.get("/fetch_all_accounts", fetchAllAccounts);
+router.get("/fetch_all_accounts", fetchAllAccountsController);
 
 module.exports = router;

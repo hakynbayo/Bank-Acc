@@ -33,7 +33,7 @@ This will start the Express server and make it available at http://localhost:500
 
 2. Access the Swagger documentation:
 
-Open your web browser and visit http://localhost:5000/api-docs to view the API documentation.
+Open your web browser and visit https://akinbayo-bank-acc.onrender.com/api-docs/ to view the API documentation.
 
 API Endpoints
 POST /create_account: Create a new bank account.
