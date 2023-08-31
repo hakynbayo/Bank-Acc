@@ -5,7 +5,7 @@ function resolveAccount(req, res) {
     const accountNumber = req.params.accountNumber;
   
     if (!accountNumber) {
-      return res.status(400).json({ error: "Missing account" });
+      return res.status(400).json({ error: "Missing account_Number" });
     }
   
     const data = db.readData();

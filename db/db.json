@@ -75,5 +75,12 @@
     "dob": "1990-01-01",
     "accountType": "Savings",
     "balance": 1000
+  },
+  {
+    "accountNumber": "1246301631",
+    "holderName": "Faith Abiola",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
   }
 ]
