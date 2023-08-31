@@ -1,13 +1,10 @@
-// controllers.js
-const bankAccounts = []; // In-memory storage for bank accounts
+const db = require("./db/db");
 
-// Generate a random 10-digit account number
-function generateAccountNumber(holderName, accountType, initialBalance) {
+// Define the generateAccountNumber function here
+function generateAccountNumber() {
   const randomDigits = Math.floor(Math.random() * 9000000000) + 1000000000;
-  return `${randomDigits}-${holderName.replace(
-    /\s+/g,
-    "_"
-  )}-${accountType}-${initialBalance}`;
+
+  return `${randomDigits}`;
 }
 
 // Create a new bank account
@@ -30,6 +27,7 @@ function createAccount(req, res) {
     accountType,
     initialBalance
   );
+
   const newAccount = {
     accountNumber,
     holderName,
@@ -38,34 +36,36 @@ function createAccount(req, res) {
     balance: initialBalance,
   };
 
-  bankAccounts.push(newAccount);
+  const data = db.readData();
+  data.push(newAccount);
+  db.writeData(data);
 
   res.status(201).json({ accountNumber });
 }
 
 // Resolve a bank account by account number
 function resolveAccount(req, res) {
-  // Resolve account logic
   const { accountNumber } = req.body;
 
   if (!accountNumber) {
     return res.status(400).json({ error: "Missing account_number" });
   }
-  const account = bankAccounts.find(
-      (acc) => acc.accountNumber === accountNumber
-);
+
+  const data = db.readData();
+  const account = data.find((acc) => acc.accountNumber === accountNumber);
+  db.readData(data);
 
   if (!account) {
     return res.status(404).json({ error: "Account not found" });
   }
 
   res.status(200).json(account);
-  console.log(account)
 }
 
 // Fetch all bank accounts
 function fetchAllAccounts(req, res) {
-  res.json(bankAccounts);
+  const data = db.readData();
+  res.json(data);
 }
 
 module.exports = { createAccount, resolveAccount, fetchAllAccounts };

@@ -9,6 +9,69 @@ const {
 
 /**
  * @swagger
+ * /resolve_account:
+ *   get:
+ *     summary: Resolve a bank account by account number
+ *     description: Resolve a bank account using its account number.
+ *     parameters:
+ *       - name: accountNumber
+ *         in: query
+ *         description: Account number of the bank account to resolve
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Bank account details retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 accountNumber:
+ *                   type: string
+ *                 holderName:
+ *                   type: string
+ *                 dob:
+ *                   type: string
+ *                   format: date
+ *                 accountType:
+ *                   type: string
+ *                 balance:
+ *                   type: number
+ *       404:
+ *         description: Account not found
+ */
+
+/**
+ * @swagger
+ * /fetch_all_accounts:
+ *   get:
+ *     summary: Fetch all bank accounts
+ *     description: Fetch a list of all bank accounts.
+ *     responses:
+ *       200:
+ *         description: List of all bank accounts
+ *         schema:
+ *           type: array
+ *           items:
+ *             type: object
+ *             properties:
+ *               accountNumber:
+ *                 type: string
+ *               holderName:
+ *                 type: string
+ *               dob:
+ *                 type: string
+ *                 format: date
+ *               accountType:
+ *                 type: string
+ *               balance:
+ *                 type: number
+ */
+
+/**
+ * @swagger
  * /create_account:
  *   post:
  *     summary: Create a new bank account
@@ -39,7 +102,6 @@ const {
  *             accountNumber:
  *               type: string
  */
-
 
 // Create a new bank account
 router.post("/create_account", createAccount);

@@ -1,0 +1,37 @@
+[
+  {
+    "accountNumber": "6563876521",
+    "holderName": "Pike Doe",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
+  },
+  {
+    "accountNumber": "4318585617",
+    "holderName": "Jike Doe",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
+  },
+  {
+    "accountNumber": "2893633826",
+    "holderName": "Zike Doe",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
+  },
+  {
+    "accountNumber": "8237337839",
+    "holderName": "Akinbayo Akinwande",
+    "dob": "2003-06-01",
+    "accountType": "Saving",
+    "balance": 50
+  },
+  {
+    "accountNumber": "1719385569",
+    "holderName": "Buke Doe",
+    "dob": "1990-01-01",
+    "accountType": "Savings",
+    "balance": 1000
+  }
+]
