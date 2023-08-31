@@ -9,15 +9,15 @@ const {
 
 /**
  * @swagger
- * /resolve_account:
+ * /resolve_account/{accountNumber}:
  *   get:
  *     summary: Resolve a bank account by account number
  *     description: Resolve a bank account using its account number.
  *     parameters:
  *       - name: accountNumber
- *         in: query
- *         description: Account number of the bank account to resolve
+ *         in: path
  *         required: true
+ *         description: Account number of the bank account to resolve
  *         schema:
  *           type: string
  *     responses:
@@ -42,6 +42,7 @@ const {
  *       404:
  *         description: Account not found
  */
+
 
 /**
  * @swagger
@@ -107,7 +108,7 @@ const {
 router.post("/create_account", createAccount);
 
 // Resolve a bank account by account number
-router.get("/resolve_account", resolveAccount);
+router.get('/resolve_account/:accountNumber', resolveAccount);
 
 // Fetch all bank accounts
 router.get("/fetch_all_accounts", fetchAllAccounts);

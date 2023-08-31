@@ -46,9 +46,7 @@ function createAccount(req, res) {
 
 // Resolve a bank account by account number
 function resolveAccount(req, res) {
-  console.log("hay")
-  const { accountNumber } = req.body;
-  console.log(accountNumber)
+  const accountNumber = req.params.accountNumber;
 
   if (!accountNumber) {
     return res.status(400).json({ error: "Missing account" });
